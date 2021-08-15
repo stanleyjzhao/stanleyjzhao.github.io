@@ -30,7 +30,7 @@ header {
 
 	.buttons a{
 		text-decoration: none;
-		color: #666666;
+		color: #cecece;
 	}
 
 
@@ -40,7 +40,7 @@ header {
 
 /*--- body --*/
 body {
-	background-color: #20201f;
+	background-color: #19191f;
 }
 
 	.fadeFirst {
@@ -74,7 +74,7 @@ body {
 	}
 
 	#body {
-		border: 3px solid #efe8ce;
+		border: 3px solid #19191f;
 	}
 	#column1 {
 		float: left;
@@ -102,7 +102,7 @@ body {
 		border-right: solid 3px rgba(0,255,0,.75);
 		white-space: nowrap;
 		overflow: hidden;    
-		color: black;
+		color: rgb(255, 255, 255);
 
 		animation: animated-text 2s steps(29,end) 1s 1 normal both, animated-cursor 1000ms steps(29,end) infinite;
 	}
@@ -114,7 +114,7 @@ body {
 
 /* -----------footer----------- */
 footer {
-	border-top: 1px solid #cccccc;
+	border-top: 1px solid #cecece;
 	font-family: 'Roboto Mono', monospace;
 	text-align: center;
 
@@ -127,36 +127,36 @@ footer {
 	}
 
 	#mailIcon {
-		border: 1px solid darkgray;
+		border: 1px solid rgb(206, 206, 206);
 		border-radius: 25%;
-		box-shadow: 0px 0px 2px darkgray;
+		box-shadow: 0px 0px 2px rgb(206, 206, 206);
 		padding: 0.5em 0.6em;
 	}
 	#mailIcon:hover {
-		border-color: coral;
-		box-shadow: 0px 0px 2px coral;
+		border-color: rgba(0,255,0,.75);
+		box-shadow: 0px 0px 2px rgba(0,255,0,.75);
 	}
 
 	#socialIcon {
-		border: 1px solid darkgray;
+		border: 1px solid rgb(206, 206, 206);
 		border-radius: 25%;
-		box-shadow: 0px 0px 2px darkgray;
+		box-shadow: 0px 0px 2px rgb(206, 206, 206);
 		padding: 0.5em 0.6em;
 	}
 	#socialIcon:hover {
-		border-color: coral;
-		box-shadow: 0px 0px 2px coral;
+		border-color: rgba(0,255,0,.75);
+		box-shadow: 0px 0px 2px rgba(0,255,0,.75);
 	}
 
 	#gitIcon {
-		border: 1px solid darkgray;
+		border: 1px solid rgb(206, 206, 206);
 		border-radius: 25%;
-		box-shadow: 0px 0px 2px darkgray;
+		box-shadow: 0px 0px 2px rgb(206, 206, 206);
 		padding: 0.5em 0.6em;
 	}
 	#gitIcon:hover {
-		border-color: coral;
-		box-shadow: 0px 0px 2px coral;
+		border-color: rgba(0,255,0,.75);
+		box-shadow: 0px 0px 2px rgba(0,255,0,.75);
 	}
 
 	#end {
