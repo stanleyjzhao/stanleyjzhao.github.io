@@ -92,7 +92,7 @@ body {
 		margin-bottom: auto;
 		font-family: 'Roboto Mono', monospace;
 		font-size: 700%;
-		color: rgb(255, 255, 255)
+		color: rgb(255, 255, 255);
 	}	
 
 	#title {
@@ -118,11 +118,15 @@ footer {
 	border-top: 1px solid #cecece;
 	font-family: 'Roboto Mono', monospace;
 	text-align: center;
-
 	padding: 2.5%;
 }
 	
 	footer a {
+		text-decoration: none;
+		color: #cecece;
+	}
+
+	footer p {
 		text-decoration: none;
 		color: #cecece;
 	}
