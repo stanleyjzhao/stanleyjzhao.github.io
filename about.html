@@ -4,6 +4,7 @@
 <head>
     <title>Stanley Zhao</title>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="about.css">
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico" />
@@ -17,23 +18,99 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     
     <style>
+        /* PDF Container Styles */
         .pdf-container {
+            width: 80%;
+            margin: 20px auto;
+            position: relative;
+            height: 80vh; /* 80% of viewport height */
             display: flex;
             justify-content: center;
-            width: 100%;
-            margin: 0 auto;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
         
         .pdf-embed {
-            width: 1000px;
-            height: 2100px;
-            max-width: 100%;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Fallback message for browsers that don't support PDF embedding */
+        .pdf-fallback {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .pdf-download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s;
+        }
+        
+        .pdf-download-btn:hover {
+            background-color: #3367d6;
+        }
+        
+        /* Loading indicator */
+        .pdf-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .pdf-container {
+                width: 95%;
+                height: 70vh;
+            }
+            
+            #title {
+                font-size: 1.5em;
+                padding: 10px 0;
+            }
+        }
+        
+        /* PDF controls - optional toolbar */
+        .pdf-controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+        
+        .pdf-control-btn {
+            padding: 5px 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+        }
+        
+        .pdf-control-btn:hover {
+            background-color: #e0e0e0;
         }
     </style>
 </head>
 
 <body>
-	<header> 
+    <header> 
         <button class="buttons">
             <a href="index.html">Home</a>
         </button>
@@ -45,30 +122,69 @@
         </button> -->
     </header>
 
-	<div class="fadeFirst" id="body">
-		<p class="animated" id="title"> &#x1F4BB My Resume </p>
-        <div class="pdf-container">
-            <embed src="Images/Stanley_Zhao_resume.pdf" class="pdf-embed" />
+    <div class="fadeFirst" id="body">
+        <p class="animated" id="title"> &#x1F4BB My Resume </p>
+        
+        <!-- Optional PDF controls -->
+        <div class="pdf-controls">
+            <button class="pdf-control-btn" id="download-pdf">Download PDF</button>
+            <button class="pdf-control-btn" id="fullscreen-pdf">Fullscreen</button>
         </div>
-        <!-- <p id="description"> Currently studying at UC Riverside as a Computer Science graduate student, graduating with a MS in June 2023. </p>
-        <p id="description"> Previously completed a Computer Science with Business Applications degree at UC Riverside, graduated June 2021. </p>
-        <p id="description"> I'm a very animated person, and enjoy working hard with friends by my side. I was a co-captain of the UCR Kendo Team for two years, I love running TTRPG campaigns for any group that will have me, and in my spare time I am an amateur Chinese cook and an avid reader.</p>
+        
+        <!-- PDF Container -->
+        <div class="pdf-container">
+            <div class="pdf-loading">Loading PDF...</div>
+            <object 
+                data="Images/Stanley_Zhao_resume.pdf" 
+                type="application/pdf" 
+                class="pdf-embed"
+                id="pdf-viewer">
+                <!-- Fallback for browsers that can't display PDFs -->
+                <div class="pdf-fallback">
+                    <p>It appears your browser doesn't support embedded PDFs.</p>
+                    <a href="Images/Stanley_Zhao_resume.pdf" class="pdf-download-btn" download>Download Resume PDF</a>
+                </div>
+            </object>
+        </div>
+    </div>
 
-        <p id="title"> Currently working as </p>
-        <p id="description"> • Graduate Research Assistant @ UCR </p>
-	    <p id="description"> • Technical Support Representative @ zyBooks </p>
-
-        <p id="title"> Previous done work as </p>
-	    <p id="description"> • AppJam+ Coding Instructor @ Dreams for Schools </p> -->
-	</div>
-
-	<footer>
-        <a id="mailIcon" href="mailto:sjz1005@gmail.com" title="Contact me" <i class="far fa-envelope" style="font-size:17px"></i> </a>
-        <a id="socialIcon" href="https://www.linkedin.com/in/stanley-j-zhao/" target="_blank" title="Add me!" <i class="fab fa-linkedin-in" style="font-size:17px; margin-left:1%; margin-right:1%"></i> </a>
-        <!-- <a id="gitIcon" href="https://github.com/stanleyjzhao" target="_blank" title="Check out my projects!" <i class="fab fa-github" style="font-size:17px"></i> </a> -->
+    <footer>
+        <a id="mailIcon" href="mailto:sjz1005@gmail.com" title="Contact me"><i class="far fa-envelope" style="font-size:17px"></i></a>
+        <a id="socialIcon" href="https://www.linkedin.com/in/stanley-j-zhao/" target="_blank" title="Add me!"><i class="fab fa-linkedin-in" style="font-size:17px; margin-left:1%; margin-right:1%"></i></a>
+        <!-- <a id="gitIcon" href="https://github.com/stanleyjzhao" target="_blank" title="Check out my projects!"><i class="fab fa-github" style="font-size:17px"></i></a> -->
 
         <p id="end"> Made by Stanley Zhao </p>
     </footer>
+
+    <script>
+        // Simple script to handle the PDF interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading message when PDF is loaded
+            document.getElementById('pdf-viewer').onload = function() {
+                document.querySelector('.pdf-loading').style.display = 'none';
+            };
+            
+            // Download button
+            document.getElementById('download-pdf').addEventListener('click', function() {
+                window.open('Images/Stanley_Zhao_resume.pdf', '_blank');
+            });
+            
+            // Fullscreen button (works in most modern browsers)
+            document.getElementById('fullscreen-pdf').addEventListener('click', function() {
+                var pdfContainer = document.querySelector('.pdf-container');
+                
+                if (pdfContainer.requestFullscreen) {
+                    pdfContainer.requestFullscreen();
+                } else if (pdfContainer.mozRequestFullScreen) { /* Firefox */
+                    pdfContainer.mozRequestFullScreen();
+                } else if (pdfContainer.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                    pdfContainer.webkitRequestFullscreen();
+                } else if (pdfContainer.msRequestFullscreen) { /* IE/Edge */
+                    pdfContainer.msRequestFullscreen();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
