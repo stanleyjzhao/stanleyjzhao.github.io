@@ -19,6 +19,7 @@
     
     <style>
         /* PDF Container Styles */
+        /* PDF Container Styles */
         .pdf-container {
             width: 80%;
             margin: 20px auto;
@@ -32,13 +33,27 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-        
+
         .pdf-embed {
-            width: 100%;
-            height: 100%;
-            border: none;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* This ensures the image is fully visible */
+            display: block;
         }
-        
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .pdf-container {
+                width: 95%;
+                height: 70vh;
+            }
+            
+            .pdf-embed {
+                width: 100%;
+                height: auto;
+            }
+        }
+                
         /* Fallback message for browsers that don't support PDF embedding */
         .pdf-fallback {
             display: none;
@@ -128,25 +143,23 @@
         <!-- Optional PDF controls -->
         <div class="pdf-controls">
             <button class="pdf-control-btn" id="download-pdf">Download PDF</button>
-            <button class="pdf-control-btn" id="fullscreen-pdf">Fullscreen</button>
+            <!-- <button class="pdf-control-btn" id="fullscreen-pdf">Fullscreen</button> -->
         </div>
         
         <!-- PDF Container -->
         <div class="pdf-container">
-            <div class="pdf-loading">Loading PDF...</div>
-            <object 
-                data="Images/Stanley_Zhao_resume.pdf" 
-                type="application/pdf" 
+            <div class="pdf-loading">Loading resume...</div>
+            <img 
+                src="Images/Stanley_Zhao_resume.jpg" 
+                alt="Stanley Zhao's Resume"
                 class="pdf-embed"
-                id="pdf-viewer">
-                <!-- Fallback for browsers that can't display PDFs -->
+                id="pdf-viewer"
+                onload="document.querySelector('.pdf-loading').style.display = 'none';">
                 <div class="pdf-fallback">
                     <p>It appears your browser doesn't support embedded PDFs.</p>
                     <a href="Images/Stanley_Zhao_resume.pdf" class="pdf-download-btn" download>Download Resume PDF</a>
                 </div>
-            </object>
         </div>
-    </div>
 
     <footer>
         <a id="mailIcon" href="mailto:sjz1005@gmail.com" title="Contact me"><i class="far fa-envelope" style="font-size:17px"></i></a>
