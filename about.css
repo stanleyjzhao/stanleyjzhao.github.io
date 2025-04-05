@@ -78,6 +78,10 @@ body {
 		animation: animated-text 0.5s steps(11,end) 1s 1 normal both, animated-cursor 1000ms steps(11,end) infinite;
 	}
 
+	.resume {
+		margin: 0 auto;
+	}
+
 	#title {
 		margin-left: 35%;
 		margin-top: 7%;
